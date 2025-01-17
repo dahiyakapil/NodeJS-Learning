@@ -22,3 +22,28 @@ NOTE: In Browser ---> window, this, self, frames --> returns window object
         so the OpenJS foundation decided to make single gloabl object so that every broswer and node
         can use the global object. 
         And the name of the global object is --> globalThis
+
+Module Exports:
+Firs the require or import file will run and then the other file will execute.
+The files are called as module when we are importing into in other module.
+Modules protect thier varibales and function from leaking by default. 
+
+CommonJS Modules (cjs)
+   - module.exports is used for exporting the modules.
+   - require() function is used for importing the modules.
+   - by default used by Node.js
+   - It is the older way of importing and exporting the modules
+   - It is synchronus (means it will fetch imported file and execute the imported file first then it will exexcute the oter file code)
+   - It executes the code in non-strict mode.
+   - In commonjs module this keyword refers to the empty object
+
+ES Modules (ESM) mjs
+   - import statement is used for importing the modules
+   - export statement is used for exporting the modules
+   - by default used by React.js, Angular.js
+   - It is the latest way of importing and exporting the modules
+   - It is asynchronous.
+   - It executes the code in strict mode.
+   - In ES modules this keyword refers to the undefined.
+
+module.exports returns empty object
