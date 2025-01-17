@@ -1,0 +1,24 @@
+First create the package.json file with command ---> npm init
+To run the node file, we have to write ---> node fileName
+
+Gloabl Object---- window, global
+    In Browser we have window is global Object. The window object is given by Browser not by the V8 Engine.
+    But in node we have global as a global object. Global is given by Node.js not by V8 Engine.
+   
+    Behaviour of this : 
+    CommonJS: Top-level this is {} (an alias for module.exports). type: "CommonJS"
+    ESM: Top-level this is undefined. type: "module"
+    How to Fix or Adjust Behavior
+    If you want to log this as {} instead of undefined:
+
+    Ensure you're using CommonJS modules:
+
+    Rename your file to .cjs.
+    Or, ensure "type": "commonjs" is set in your package.json.
+    If you're using ESM (or "type": "module"), this will be undefined by design.
+
+NOTE: In Browser ---> window, this, self, frames --> returns window object
+        There are different global object in browser and node 
+        so the OpenJS foundation decided to make single gloabl object so that every broswer and node
+        can use the global object. 
+        And the name of the global object is --> globalThis
