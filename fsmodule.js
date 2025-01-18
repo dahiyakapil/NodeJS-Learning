@@ -94,15 +94,15 @@ fs.appendFile("data.txt", ", This content of append file1", "utf8", (error) => {
 // })
 
 // Check File Stats
-fs.stat("data.txt", (error, stats) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(stats); // Logs the complete stats object, which includes information about the file.
-    console.log(stats.isDirectory()); // Checks if the path refers to a directory and logs true/false.
-    console.log(stats.size); // returns size of the file in bytes.
-  }
-});
+// fs.stat("data.txt", (error, stats) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(stats); // Logs the complete stats object, which includes information about the file.
+//     console.log(stats.isDirectory()); // Checks if the path refers to a directory and logs true/false.
+//     console.log(stats.size); // returns size of the file in bytes.
+//   }
+// });
 
 // delete file
 

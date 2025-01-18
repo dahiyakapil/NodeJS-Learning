@@ -26,4 +26,9 @@ console.log(module.exports); // returns empty object, when we are using the comm
 
 console.log("-------------------------------- FS Module -------------------------------")
 
-require("./fsmodule.js")
+
+// require("./fsmodule.js");  // FS operations first
+
+console.log("-------------------------------- Path Modules ----------------------------");
+
+require("./pathModule.js");  // Path operations after FS operations
