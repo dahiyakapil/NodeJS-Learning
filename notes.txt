@@ -24,7 +24,7 @@ NOTE: In Browser ---> window, this, self, frames --> returns window object
         And the name of the global object is --> globalThis
 
 Module Exports:
-Firs the require or import file will run and then the other file will execute.
+Firstly the require or import file will run and then the other file will execute.
 The files are called as module when we are importing into in other module.
 Modules protect thier varibales and function from leaking by default. 
 
@@ -47,3 +47,43 @@ ES Modules (ESM) mjs
    - In ES modules this keyword refers to the undefined.
 
 module.exports returns empty object
+
+Behind the scene of require("./filepath)
+NOTE: All the code of the module is wrapped inside a function(). And this function is IIFE.
+The module is not directly passed to V8 Engine. Firstly is wrapped inside IIFE then it is passed to the V8 Engine.
+
+In IIFE (Immmedialtly Invoked Function Expression)
+    
+      (function (module, require){
+         // module code
+      })()
+
+IIFE has two paramters---> module and require.
+
+How require() Works Behind the Scenes ?
+
+There are 5 steps of require() function.
+
+   1. Resolving the Module
+      Node.js first determines the path of the module. It checks whether the 
+      path is a local file (./local ), a JSON file (.json ), or a module from the node_modules directory, among other possibilities.
+
+   2. Loading the Module
+      Once the path is resolved, Node.js loads the file content based on its type. 
+      The loading process varies depending on whether the file is JavaScript, JSON, or another type.
+
+   3. Wrapping Inside an IIFE
+      The module code is wrapped in an Immediately Invoked Function 
+      Expression (IIFE). This wrapping helps encapsulate the module's scope, 
+      keeping variables and functions private to the module.
+
+   4. Code Evaluation and Module Exports
+      After wrapping, Node.js evaluates the moduleʼs code. During this evaluation, module.exports is set to export the module's functionality or data. This step essentially makes the module's exports available to other files.
+
+   5. Caching(very imp)
+      Importance: Caching is crucial for performance. Node.js caches the result 
+      of the require() call so that the module is only loaded and executed once.
+
+
+
+NOTE: Calll Stack is single threaded main thread

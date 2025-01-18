@@ -1,0 +1,7 @@
+ES Module Errors
+
+When we are using the ESM then __filename is not present inside ESM.
+SO it will throw the Error ----> console.log(__filename);  ReferenceError: __filename is not defined in ES module scope
+
+So in this case we have to use the commonjs module instead of ESM.
+
