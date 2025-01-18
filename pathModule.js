@@ -47,6 +47,8 @@ const pathObject = {
 const formattedPath = path.format(pathObject);
 console.log(formattedPath);
 
-console.log(path.isAbsolute("C:/Full Stack/All Backend/NodeJS-Learning/src/folder"));
+console.log(
+  path.isAbsolute("C:/Full Stack/All Backend/NodeJS-Learning/src/folder")
+);
 
-console.log(path.normalize("src//folder//one.js"))
+console.log(path.normalize("src//folder//one.js"));

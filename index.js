@@ -32,3 +32,7 @@ console.log("-------------------------------- FS Module ------------------------
 console.log("-------------------------------- Path Modules ----------------------------");
 
 require("./pathModule.js");  // Path operations after FS operations
+
+console.log("----------------------------------- Events -----------------------------------")
+
+require("./events.js")
