@@ -86,4 +86,55 @@ There are 5 steps of require() function.
 
 
 
-NOTE: Calll Stack is single threaded main thread
+NOTE: Call Stack is single threaded, main thread
+
+
+
+
+Deep Dive into JSV8 Engine
+
+When you write some piece of code, this code is given to V8 engine.
+There are several steps when you give the code to V8 engine.
+
+Steps:
+A. Parsing:
+   1. Lexical Analysis(Tokenization): In lexical analysis, the code you have given is broken down into Tokens(lexical tokens)
+   For example: var a = 10;
+   Tokens will be : var, a, =, 10
+   V8 Engine read the code token by token.
+
+   2. Syntax Analysis: The code is broekn down into tokens.
+      A abstract syntax tree(AST ) is developed.
+      Token is converted into AST.
+      Website: astexplorer.net
+
+   What is syntax Error?
+   When JS V8 Engine is unable to generate the Abstract Syntax Tree(AST). 
+
+B. Interpreter: 
+
+There are two types of languages: 
+
+Intrepreted:
+- The code is executed line by line.
+- Fast initial execution.
+- For execute the code, interpreter is there.
+
+
+
+
+Compiled:
+- When we give the code, the whole code is compiled into machine code. (High level code --> Machine code)
+- Initially Heavy, but executed fast.
+- For execute the code, compiler is there.
+
+
+AST --> Ignition Interprter + Turbofan Compiler --> Byte Code --> Execution 
+
+When a sum funtion is calling again and again in a program then the Ignition interpreter sees that this sum function can be optimized so Ignition interpreter gives this HOT CODE (sum(1, 2) function) to Turbofan Compiler and then Turbofan compiler converts this sum function into optimized Machine Code. And then the execution happens.
+
+There is deoptimized Code also, means when Turbofan compiler sees that the sum function takes the argument in integers or Numbers then it will convert the code into the optimized machine code but When the Turbofan Compiler sees that arguments passed in sum function are string not integers or number then it deoptimzed the code. And the deoptimzed the code is again sent to the Ignition Interpreter.
+
+
+
+ 
